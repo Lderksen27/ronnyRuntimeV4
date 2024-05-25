@@ -5,6 +5,7 @@ import com.github.hanyaeger.api.userinput.MouseButtonPressedListener;
 import com.github.hanyaeger.api.userinput.MouseEnterListener;
 import com.github.hanyaeger.api.userinput.MouseExitListener;
 import javafx.scene.input.MouseButton;
+import ronnyRuntime.game.entities.ronnyRuntime.RonnyRuntime;
 import ronnyRuntime.game.ronnyRuntimeApp;
 import ronnyRuntime.game.scenes.ButtonBox;
 
@@ -15,11 +16,13 @@ public class StartButton extends Button implements MouseButtonPressedListener, M
 
     private final ronnyRuntimeApp APP;
     private final ButtonBox BUTTON_BOX;
+    private final DifficultyButton DIFFICULTY;
 
-    public StartButton(Coordinate2D initialLocation, ronnyRuntimeApp ronnyRuntimeApp, ButtonBox buttonBox) {
+    public StartButton(Coordinate2D initialLocation, ronnyRuntimeApp ronnyRuntimeApp, ButtonBox buttonBox, DifficultyButton difficulty) {
         super(initialLocation, "Start!");
         this.APP = ronnyRuntimeApp;
         this.BUTTON_BOX = buttonBox;
+        this.DIFFICULTY = difficulty;
     }
 
     /**
@@ -27,6 +30,7 @@ public class StartButton extends Button implements MouseButtonPressedListener, M
      */
     @Override
     public void voerActieUit() {
+        RonnyRuntime.setDifficulty(DIFFICULTY.getDifficultyLevel());
         APP.setActiveScene(1);
     }
 

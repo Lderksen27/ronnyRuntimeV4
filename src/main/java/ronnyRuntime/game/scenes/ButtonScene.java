@@ -45,18 +45,18 @@ public class ButtonScene extends StaticScene {
         addEntity(newHighScoreText);
         switch (this.type) {
             case ButtonSceneType.START:
+                Coordinate2D difficultyLoc = new Coordinate2D(getWidth() * 0.8, getHeight() * 0.5);
+                DifficultyBackground difficultyBackground = new DifficultyBackground(difficultyLoc);
+                addEntity(difficultyBackground);
+                DifficultyButton difficultyButton = new DifficultyButton(difficultyLoc, difficultyBackground);
+                addEntity(difficultyButton);
                 addEntity(new Header(headerLocation, "Ronny Runtime"));
-                Button startButton = new StartButton(firstButtonLocation, this.ronnyRuntimeApp, topBox);
+                Button startButton = new StartButton(firstButtonLocation, this.ronnyRuntimeApp, topBox, difficultyButton);
                 topBox.setButton(startButton);
                 addEntity(topBox);
                 addEntity(startButton);
                 InstructionButton instructionButton = new InstructionButton(new Coordinate2D(getWidth() * 0.8, 50), this.ronnyRuntimeApp);
                 addEntity(instructionButton);
-                Coordinate2D difficultyLoc = new Coordinate2D(getWidth() * 0.8, getHeight() * 0.5);
-                DifficultyBackground difficultyBackground = new DifficultyBackground(difficultyLoc);
-                addEntity(difficultyBackground);
-                DifficultyButton difficultyButton = new DifficultyButton(difficultyLoc);
-                addEntity(difficultyButton);
                 break;
             case ButtonSceneType.GAME_OVER:
                 addEntity(new Header(headerLocation, "Game Over"));

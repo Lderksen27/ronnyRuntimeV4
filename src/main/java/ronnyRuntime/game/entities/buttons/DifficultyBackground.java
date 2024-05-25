@@ -15,4 +15,8 @@ public class DifficultyBackground extends RectangleEntity {
         setOpacity(0.65);
         setAnchorPoint(AnchorPoint.CENTER_CENTER);
     }
+
+    public void setBackGroundColor(Color color) {
+        setFill(color);
+    }
 }

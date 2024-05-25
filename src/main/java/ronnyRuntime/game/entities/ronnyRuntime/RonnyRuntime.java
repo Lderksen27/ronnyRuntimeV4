@@ -9,6 +9,7 @@ import com.github.hanyaeger.api.media.SoundClip;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.api.userinput.KeyListener;
 import ronnyRuntime.game.entities.Orientation;
+import ronnyRuntime.game.entities.buttons.DifficultyLevel;
 import ronnyRuntime.game.entities.text.BulletText;
 import ronnyRuntime.game.entities.text.LivesText;
 import ronnyRuntime.game.entities.text.PointText;
@@ -27,6 +28,7 @@ public class RonnyRuntime extends DynamicCompositeEntity implements SceneBorderT
 
     private static int points = 0;
     private static int lives = 3;
+    private static DifficultyLevel difficulty = DifficultyLevel.EASY;
     private int bullets = 10;
 
     private boolean touchdown = true;
@@ -123,6 +125,14 @@ public class RonnyRuntime extends DynamicCompositeEntity implements SceneBorderT
 
     public void setShootFast(boolean shootFast) {
         this.shootFast = shootFast;
+    }
+
+    public static void setDifficulty(DifficultyLevel difficulty) {
+        RonnyRuntime.difficulty = difficulty;
+    }
+
+    public static DifficultyLevel getDifficulty() {
+        return difficulty;
     }
 
     public boolean getInvincible(){

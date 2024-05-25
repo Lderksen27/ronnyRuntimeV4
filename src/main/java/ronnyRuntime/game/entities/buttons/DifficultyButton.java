@@ -12,12 +12,14 @@ import javafx.scene.text.FontWeight;
 public class DifficultyButton extends TextEntity implements MouseButtonPressedListener {
 
     private DifficultyLevel difficultyLevel;
-    public DifficultyButton(Coordinate2D initialLocation) {
+    private final DifficultyBackground difficultyBackground;
+    public DifficultyButton(Coordinate2D initialLocation, DifficultyBackground difficultyBackground) {
         super(initialLocation, "EASY");
         this.difficultyLevel = DifficultyLevel.EASY;
+        this.difficultyBackground = difficultyBackground;
         setAnchorPoint(AnchorPoint.CENTER_CENTER);
         setFill(Color.HOTPINK);
-        setFont(Font.font("Roboto", FontWeight.BOLD, 30));
+        setFont(Font.font("Roboto", FontWeight.BOLD, 60));
 
     }
 
@@ -26,17 +28,24 @@ public class DifficultyButton extends TextEntity implements MouseButtonPressedLi
         setText(difficultyLevel.toString());
     }
 
+    public DifficultyLevel getDifficultyLevel() {
+        return this.difficultyLevel;
+    }
+
     @Override
     public void onMouseButtonPressed(MouseButton mouseButton, Coordinate2D coordinate2D) {
         DifficultyLevel nextDifficulty = newDifficulty();
         switch (nextDifficulty) {
             case DifficultyLevel.EASY:
                 setFill(Color.HOTPINK);
+                difficultyBackground.setBackGroundColor(Color.WHITE);
                 break;
             case DifficultyLevel.OKAY:
                 setFill(Color.ORANGERED);
+                difficultyBackground.setBackGroundColor(Color.YELLOW);
                 break;
             case DifficultyLevel.HARD:
+                difficultyBackground.setBackGroundColor(Color.ORANGE);
                 setFill(Color.DARKRED);
                 break;
             default:
