@@ -25,7 +25,6 @@ public class MonsterSpawner extends EntitySpawner {
     @Override
     protected void spawnEntities() {
         DifficultyLevel difficultyLevel = RonnyRuntime.getDifficulty();
-        System.out.println(difficultyLevel.toString());
         int speed;
         switch (difficultyLevel) {
             case EASY:

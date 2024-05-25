@@ -4,13 +4,14 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.Direction;
+import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.entities.impl.SpriteEntity;
 import com.github.hanyaeger.api.media.SoundClip;
 import ronnyRuntime.game.entities.Orientation;
 import ronnyRuntime.game.entities.ronnyRuntime.HitBox;
 import ronnyRuntime.game.entities.ronnyRuntime.RonnyRuntime;
 
-public class Platform extends SpriteEntity implements Collider {
+public class Platform extends DynamicSpriteEntity implements Collider {
 
     public Platform(Coordinate2D initialLocation, Size size, String resource) {
         super(resource, initialLocation, size);
@@ -27,6 +28,10 @@ public class Platform extends SpriteEntity implements Collider {
                     ronny.setAnchorLocationY(currentLocation.getY() - 1);
                     ronny.setTouchdown(true);
                     ronny.setJumping(false);
+                } else if (this instanceof ElevatorPlatform) {
+                    if (!((ElevatorPlatform) this).isHasMoved() && !((ElevatorPlatform) this).isMoving()) {
+                        ((ElevatorPlatform) this).moveElevator();
+                    }
                 } else {
                     ronny.setSpeed(0);
                 }
