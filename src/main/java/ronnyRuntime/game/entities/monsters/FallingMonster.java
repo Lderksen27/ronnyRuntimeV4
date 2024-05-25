@@ -14,10 +14,10 @@ import java.util.Timer;
  */
 public class FallingMonster extends Monster implements SceneBorderCrossingWatcher {
 
-    public FallingMonster(Coordinate2D initialLocation, GameLevel gameLevel) {
+    public FallingMonster(Coordinate2D initialLocation, GameLevel gameLevel, int speed) {
         super("sprites/Monster3/monster3.png", initialLocation, gameLevel);
         setCurrentFrameIndex(0);
-        setMotion(2, 0d);
+        setMotion(speed, 0d);
     }
 
     @Override
