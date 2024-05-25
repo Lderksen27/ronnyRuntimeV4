@@ -1,0 +1,14 @@
+module:ronnyRuntime
+ronnyRuntime.game
+ronnyRuntime.game.entities
+ronnyRuntime.game.entities.bullet
+ronnyRuntime.game.entities.buttons
+ronnyRuntime.game.entities.highscore
+ronnyRuntime.game.entities.map
+ronnyRuntime.game.entities.map.platforms
+ronnyRuntime.game.entities.monsters
+ronnyRuntime.game.entities.powerUps
+ronnyRuntime.game.entities.ronnyRuntime
+ronnyRuntime.game.entities.text
+ronnyRuntime.game.scenes
+ronnyRuntime.game.spawners
