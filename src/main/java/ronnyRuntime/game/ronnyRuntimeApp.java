@@ -11,7 +11,6 @@ public class ronnyRuntimeApp extends YaegerGame {
 
     public static void main(String[] args) {
         launch(args);
-        System.out.println("Start!");
     }
 
     @Override

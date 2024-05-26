@@ -36,6 +36,7 @@ public class RonnyRuntime extends DynamicCompositeEntity implements SceneBorderT
     private boolean invincible = false;
     private boolean isJumping = false;
     private boolean shootFast = false;
+    private boolean movingOnElevator = false;
 
     private final HitBox HB_LEFT;
     private final HitBox HB_RIGHT;
@@ -79,21 +80,31 @@ public class RonnyRuntime extends DynamicCompositeEntity implements SceneBorderT
         keepInMap(border);
     }
 
+    public void setMovingOnElevator(boolean movingOnElevator) {
+        this.movingOnElevator = movingOnElevator;
+    }
+
     @Override
     public void onPressedKeysChange(Set<KeyCode> set) {
         if (getTouchdown()){
             for (KeyCode keyCode : set) {
                 switch (keyCode) {
                     case KeyCode.UP:
-                            jump();
-                            setTouchdown(false);
-                            setJumping(true);
+                            if (!movingOnElevator) {
+                                jump();
+                                setTouchdown(false);
+                                setJumping(true);
+                            }
                         break;
                     case KeyCode.LEFT:
-                        addToMotion(3, Direction.LEFT);
+                        if (!movingOnElevator) {
+                            addToMotion(3, Direction.LEFT);
+                        }
                         break;
                     case KeyCode.RIGHT:
-                        addToMotion(3, Direction.RIGHT);
+                        if (!movingOnElevator) {
+                            addToMotion(3, Direction.RIGHT);
+                        }
                         break;
                     case KeyCode.SPACE:
                         if (canShoot && bullets > 0) {
