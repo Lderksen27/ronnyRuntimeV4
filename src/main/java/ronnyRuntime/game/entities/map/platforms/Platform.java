@@ -30,7 +30,7 @@ public class Platform extends DynamicSpriteEntity implements Collider {
                     ronny.setJumping(false);
                 } else if (this instanceof ElevatorPlatform) {
                     if (!((ElevatorPlatform) this).isHasMoved() && !((ElevatorPlatform) this).isMoving()) {
-                        ((ElevatorPlatform) this).moveElevator();
+                        ((ElevatorPlatform) this).moveElevator(ronny);
                     }
                 } else {
                     ronny.setSpeed(0);

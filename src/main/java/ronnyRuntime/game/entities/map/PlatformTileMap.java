@@ -55,7 +55,7 @@ public class PlatformTileMap extends TileMap {
         addEntity(29, ExtraLife.class, "Objects/Items/health.png");
         addEntity(30, Invincible.class, "Objects/Items/invincible.png");
         addEntity(31, FastShooter.class, "Objects/Items/Mushroom_1.png");
-        addEntity(32, ElevatorPlatform.class);
+        addEntity(32, ElevatorPlatform.class, GAME_LEVEL);
     }
 
     @Override
