@@ -14,7 +14,6 @@ public class Invincible extends SpriteEntity implements Collider, PowerUp {
     public Invincible(Coordinate2D location, Size size, String resource) {
         super(resource, location, size);
     }
-
     @Override
     public void geefEffect(RonnyRuntime ronny) {
         ronny.becomeInvincible();

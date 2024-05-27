@@ -11,7 +11,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * Standaard platform
+ * Platform waarmee Ronny een stuk wordt opgetild. Werkt 1x per level.
  */
 public class ElevatorPlatform extends Platform {
 
@@ -25,6 +25,10 @@ public class ElevatorPlatform extends Platform {
         this.LEVEL = LEVEL;
     }
 
+    /**
+     * Functie die het stijgen van de lift regelt.
+     * @param ronny instantie RonnyRuntime
+     */
     public void moveElevator(RonnyRuntime ronny) {
         setMoving(true);
         setMotion(2, Direction.UP);
@@ -51,6 +55,9 @@ public class ElevatorPlatform extends Platform {
         this.hasMoved = hasMoved;
     }
 
+    /**
+     * Deze klas regelt dat de lift stop na 1000ms.
+     */
     public class ElevatorTask extends TimerTask {
 
         private final RonnyRuntime ronnyRuntime;

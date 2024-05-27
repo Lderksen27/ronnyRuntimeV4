@@ -46,10 +46,4 @@ public class Bullet extends DynamicRectangleEntity implements SceneBorderCrossin
             }
         }
     }
-
-    public void monsterCollision(Monster collider){
-        collider.die();
-        RONNY.killMonster();
-        this.remove();
-    }
 }

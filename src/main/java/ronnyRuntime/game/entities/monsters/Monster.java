@@ -9,6 +9,10 @@ import ronnyRuntime.game.spawners.MunitionSpawner;
 
 import java.util.Timer;
 
+/**
+ * Moederklasse voor de verschillende vijanden in het spel
+ */
+
 public abstract class Monster extends DynamicSpriteEntity implements Collider {
 
     private boolean isActive = true;
@@ -19,6 +23,9 @@ public abstract class Monster extends DynamicSpriteEntity implements Collider {
         this.GAME_LEVEL = gameLevel;
     }
 
+    /**
+     * Zorgt dat het monster gaat knipperen wanneer Ronny hem aangeraakt heeft.
+     */
     public void flash() {
         this.isActive = false;
         Timer flashTimer = new Timer();
@@ -33,12 +40,20 @@ public abstract class Monster extends DynamicSpriteEntity implements Collider {
         isActive = active;
     }
 
+    /**
+     * Laat het monster sterven
+     */
     public void die() {
         Coordinate2D monsterLocation = this.getAnchorLocation();
         MunitionSpawner munitionSpawner = new MunitionSpawner(monsterLocation);
         this.GAME_LEVEL.addEntitySpawner(munitionSpawner);
         this.remove();
     }
+
+    /**
+     * Verander de helderheid van het monster t.b.v het knipperen
+     * @param toggle
+     */
 
     public void changeBrightness(boolean toggle) {
         this.setBrightness(toggle ? 0.8d : 0d);

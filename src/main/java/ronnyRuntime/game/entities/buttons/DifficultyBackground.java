@@ -6,6 +6,10 @@ import com.github.hanyaeger.api.entities.impl.DynamicRectangleEntity;
 import com.github.hanyaeger.api.entities.impl.RectangleEntity;
 import javafx.scene.paint.Color;
 
+/**
+ * Achtergrond voor de moeilijkheidsinstelling op het startscherm. Verandert
+ * van kleur bij het toggelen.
+ */
 public class DifficultyBackground extends RectangleEntity {
     public DifficultyBackground(Coordinate2D initialLocation) {
         super(initialLocation);
