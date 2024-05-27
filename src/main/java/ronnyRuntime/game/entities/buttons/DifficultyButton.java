@@ -9,6 +9,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
+/**
+ * Knop om de moeilijkheidsgraag mee te toggelen.
+ */
 public class DifficultyButton extends TextEntity implements MouseButtonPressedListener {
 
     private DifficultyLevel difficultyLevel;
@@ -22,6 +25,11 @@ public class DifficultyButton extends TextEntity implements MouseButtonPressedLi
         setFont(Font.font("Roboto", FontWeight.BOLD, 60));
 
     }
+
+    /**
+     * Verandert de moelijkheidsgraad en de textuele weergave hiervan op de knop
+     * @param difficultyLevel Moeilijkheidsgraag
+     */
 
     public void setDifficultyLevel(DifficultyLevel difficultyLevel) {
         this.difficultyLevel = difficultyLevel;
@@ -53,6 +61,11 @@ public class DifficultyButton extends TextEntity implements MouseButtonPressedLi
         }
         setDifficultyLevel(newDifficulty());
     }
+
+    /**
+     * Functie die teruggeeft wat de nieuwe moeilijkheidsgraag moet worden bij het toggelen.
+     * @return Nieuwe moeilijkheidsgraad
+     */
 
     public DifficultyLevel newDifficulty() {
         if (this.difficultyLevel == DifficultyLevel.EASY) {

@@ -7,7 +7,7 @@ import com.github.hanyaeger.api.entities.impl.SpriteEntity;
 import ronnyRuntime.game.entities.ronnyRuntime.RonnyRuntime;
 
 /**
- * Een PowerUp die lijdt tot danwel een extra leven, dan wel invincibility.
+ * Een PowerUp die er voor zorgt dat Ronny tijdelijk sneller kan schieten.
  */
 public class FastShooter extends SpriteEntity implements Collider, PowerUp {
 

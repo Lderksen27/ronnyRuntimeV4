@@ -11,12 +11,19 @@ import ronnyRuntime.game.entities.Orientation;
 import ronnyRuntime.game.entities.ronnyRuntime.HitBox;
 import ronnyRuntime.game.entities.ronnyRuntime.RonnyRuntime;
 
+/**
+ * Moederklasse voor platformen
+ */
 public class Platform extends DynamicSpriteEntity implements Collider {
 
     public Platform(Coordinate2D initialLocation, Size size, String resource) {
         super(resource, initialLocation, size);
     }
 
+    /**
+     * Functie die de botsing van Ronny met platformen afhandelt.
+     * @param hitBox
+     */
     public void platformCollision(HitBox hitBox){
         RonnyRuntime ronny = hitBox.getRonny();
         Coordinate2D currentLocation;
@@ -63,6 +70,10 @@ public class Platform extends DynamicSpriteEntity implements Collider {
             destroyBombPlatform();
         }
     }
+
+    /**
+     *   Laat het bomplatform verwdwijnen
+     */
 
     private void destroyBombPlatform() {
         final SoundClip GROUND_BROKEN = new SoundClip("audio/groundBroken.mp3");
